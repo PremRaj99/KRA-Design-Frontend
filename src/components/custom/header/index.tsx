@@ -218,9 +218,14 @@ export const Header: React.FC = () => {
                       >
                         {/* Optional: Add a subtle fade to the text so it doesn't look messy while the box is resizing */}
                         <motion.div
-                          initial={{ y: -5, filter: 'blur(4px)' }}
-                          animate={{ y: 0, filter: 'blur(0px)', transition: { delay: 0.1 } }}
-                          // exit={{ y: -5, transition: { duration: 0.1 } }}
+                          initial={{ opacity: 0, y: -5, filter: 'blur(4px)' }}
+                          animate={{
+                            opacity: 1,
+                            y: 0,
+                            filter: 'blur(0px)',
+                            transition: { delay: 0.1, duration: 0.2 },
+                          }}
+                          // exit={{ opacity: 0, y: -5, transition: { duration: 0.1 } }}
                           className="flex flex-col"
                         >
                           {category.sub.map((subItem) => (

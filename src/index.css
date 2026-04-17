@@ -1,8 +1,8 @@
-@import "tailwindcss";
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
-@import "@fontsource-variable/inter";
-@import "@fontsource-variable/geist";
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/geist';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -116,6 +116,8 @@
     --radius-2xl: calc(var(--radius) * 1.8);
     --radius-3xl: calc(var(--radius) * 2.2);
     --radius-4xl: calc(var(--radius) * 2.6);
+
+    --height-body: calc(100vh - 117px);
 }
 
 @layer base {
@@ -128,4 +130,14 @@
   html {
     @apply font-sans;
     }
+}
+
+@media (width <= 48rem) {
+  .h-body {
+    height: calc(100vh - 65px) !important;
+  }
+
+  .min-h-body {
+    min-height: calc(100vh - 65px) !important;
+  }
 }
