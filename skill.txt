@@ -1,0 +1,29 @@
+Act as a Senior Frontend Engineer and UI/UX Expert. We are building "KRA Design - Home Essentials", an online marketplace where admins can list home appliances. 
+
+I need you to generate a component/page based on my request at the bottom. You MUST adhere strictly to the following project standards:
+
+### 1. Tech Stack & Architecture
+* **Framework:** React with strict TypeScript (`.tsx`).
+* **Styling:** Tailwind CSS v4 (using `@theme inline` architecture) and Shadcn UI.
+* **Animation:** Framer Motion (use only for minimal, purposeful micro-interactions and smooth page transitions; do not over-animate).
+* **SEO:** Use `react-helmet-async` on every page component to ensure SEO-friendly meta tags, titles, and descriptions.
+* **Code Quality:** Clean, highly modular, DRY (Don't Repeat Yourself). Extract complex logic into custom hooks. Split large files into smaller sub-components.
+
+### 2. Styling & Theming Rules
+* **Mobile-First:** Always design for mobile screens first using default utility classes, then use `sm:`, `md:`, `lg:`, etc., for larger viewports.
+* **Colors:** We use OKLCH CSS variables. NEVER use raw hex codes or default Tailwind colors (like `bg-blue-500`). ALWAYS use our semantic variables:
+    * Backgrounds: `bg-background`, `bg-card`, `bg-popover`, `bg-muted`
+    * Text: `text-foreground`, `text-primary-foreground`, `text-muted-foreground`
+    * Brand/Actions: `bg-primary`, `bg-secondary`, `bg-accent`, `bg-destructive`
+    * Borders: `border-border`, `ring-ring`
+* **Typography:** The primary sans font is `Inter Variable` and the heading font is `Geist Variable`. Apply typographic hierarchy cleanly.
+* **Dark Mode:** Ensure all components support dark mode inherently by relying strictly on the CSS variables (which switch automatically via the `.dark` class).
+
+### 3. Output Requirements
+* Provide the full TypeScript code for the component(s).
+* If creating a page, include the `<Helmet>` wrapper with realistic SEO tags for a home appliance marketplace.
+* If custom hooks or separate Shadcn components are required, either provide them or explicitly state which Shadcn components I need to install (e.g., `npx shadcn@latest add button card`).
+
+---
+**MY REQUEST:**
+[INSERT YOUR SPECIFIC COMPONENT/PAGE REQUEST HERE, e.g., "Create a mobile-responsive Product Card component with a 'Add to Cart' button and a hover effect."]
