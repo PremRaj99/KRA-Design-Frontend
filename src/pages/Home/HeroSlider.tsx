@@ -45,7 +45,7 @@ export const HeroSlider: React.FC = () => {
 
   return (
     <section
-      className="h-body bg-muted relative min-h-[600px] w-full overflow-hidden"
+      className="h-body bg-muted relative min-h-150 w-full overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -72,7 +72,7 @@ export const HeroSlider: React.FC = () => {
       <div className="pointer-events-none absolute inset-0 z-10 bg-linear-to-tr from-background/95 via-background/70 to-transparent md:via-background/40" />
 
       {/* 3. Content Overlay (z-20) - Pure text, no background box */}
-      <div className="pointer-events-none absolute inset-0 z-20 flex flex-col items-start justify-end pr-4 pb-16 pl-4 sm:pl-16 lg:pb-24 lg:pl-24">
+      <div className="pointer-events-none absolute inset-0 z-20 flex flex-col items-start justify-end pr-8 pb-16 pl-8 sm:pl-16 lg:pb-24 lg:pl-24">
         <div className="pointer-events-auto max-w-3xl">
           <AnimatePresence mode="wait">
             <motion.div
@@ -83,10 +83,10 @@ export const HeroSlider: React.FC = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="flex flex-col items-start text-left"
             >
-              <h1 className="font-geist text-foreground mb-4 text-4xl font-extrabold tracking-tight drop-shadow-xl sm:text-5xl lg:text-7xl">
+              <h1 className="font-geist text-foreground mb-4 text-3xl font-extrabold tracking-tight drop-shadow-xl sm:text-5xl lg:text-6xl">
                 {SLIDES[currentIndex].title}
               </h1>
-              <p className="text-foreground/90 mb-8 max-w-xl font-sans text-lg drop-shadow-md sm:text-xl lg:text-2xl">
+              <p className="text-foreground/90 mb-4 md:mb-8 max-w-xl font-sans text-base drop-shadow-md sm:text-lg lg:text-xl">
                 {SLIDES[currentIndex].subtitle}
               </p>
               <Button asChild size="lg" className="font-sans text-base shadow-lg">

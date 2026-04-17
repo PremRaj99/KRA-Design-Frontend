@@ -1,5 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import { HeroSlider } from './HeroSlider'; // Adjust path
+import { TopCategories } from './TopCategories';
+import { TrendingReels } from './TrendingReels';
 // import { FeaturedCategories } from '@/components/custom/FeaturedCategories';
 
 export default function HomePage() {
@@ -17,6 +19,8 @@ export default function HomePage() {
 
       {/* Hero Section */}
       <HeroSlider />
+      <TopCategories />
+      <TrendingReels />
 
       {/* Subsequent Page Sections can go here */}
       {/* <div className="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
