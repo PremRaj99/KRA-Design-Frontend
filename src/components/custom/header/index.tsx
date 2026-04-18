@@ -40,9 +40,9 @@ import { Link } from 'react-router-dom';
 // --- Data Constants ---
 const PRIMARY_NAV = [
   { label: 'Home', href: '/', icon: Home },
-  { label: 'Collection', href: '/collection', icon: Grid },
-  { label: 'Reel', href: '/reel', icon: PlaySquare },
-  { label: 'Blog', href: '/blog', icon: FileText },
+  { label: 'Collections', href: '/collections', icon: Grid },
+  { label: 'Reels', href: '/reels', icon: PlaySquare },
+  { label: 'Blogs', href: '/blogs', icon: FileText },
   { label: 'Contact', href: '/contact', icon: Phone },
 ];
 

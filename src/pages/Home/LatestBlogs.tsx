@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Clock, ArrowRight, ArrowUpRight } from 'lucide-react';
+import { Clock, ArrowUpRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import SectionHeading from '@/components/custom/SectionHeading';

@@ -11,6 +11,7 @@ export default function RootLayout() {
   return (
     <div className="bg-background text-foreground font-sans relative h-screen min-h-screen w-full overflow-hidden pb-20 md:pb-0">
       
+      <Providers>
       {/* Global Default SEO Metadata */}
       <Helmet>
         <title>KRA Design | Luxury Home Essentials & Appliances</title>
@@ -23,8 +24,6 @@ export default function RootLayout() {
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
       </Helmet>
-
-      <Providers>
         <ScrollToTop />
         <div id="main-scroll-container" className="relative z-10 h-screen overflow-y-auto">
           <Header />

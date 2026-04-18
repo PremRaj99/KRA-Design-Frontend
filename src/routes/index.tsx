@@ -7,6 +7,7 @@ import Login from '@/pages/Login';
 import NotFound from '@/pages/Not-Found';
 import Contact from '@/pages/Contact';
 import About from '@/pages/About';
+import CollectionPage from '@/pages/Collections';
 
 export const router = createBrowserRouter([
   {
@@ -16,6 +17,7 @@ export const router = createBrowserRouter([
 
       { path: '/login', element: <Login /> },
       { path: '/signup', element: <Signup /> },
+      { path: '/collections', element: <CollectionPage /> }, // Placeholder for Collections page
       { path: '/contact', element: <Contact /> },
       { path: '/about', element: <About /> },
       { path: '*', element: <NotFound /> },

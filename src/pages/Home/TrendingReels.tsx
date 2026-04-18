@@ -2,7 +2,7 @@ import reelVideo from '@/assets/reels/Video-524.mp4';
 import SectionHeading from '@/components/custom/SectionHeading';
 import { Button } from '@/components/ui/button';
 import { motion, useInView } from 'framer-motion';
-import { ArrowRight, ArrowUpRight, Play, ShoppingBag } from 'lucide-react';
+import { ArrowUpRight, Play, ShoppingBag } from 'lucide-react';
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShoppingBag } from 'lucide-react';
+import { ShoppingBag, Star } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 
@@ -12,11 +12,13 @@ export type Category = 'All' | 'Living Room' | 'Bedroom' | 'Kitchen' | 'Decor';
 export interface Product {
   id: string;
   category: Category;
+  subCategory: string;
   title: string;
   image: string;
   price: number;
   discountedPrice?: number;
   discountPercentage?: number;
+  rating: number;
   tag?: string;
 }
 
@@ -86,9 +88,15 @@ export const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
 
       {/* 2. Content Area (Tight, minimal, editorial typography) */}
       <div className="mt-4 flex flex-col px-1">
-        <p className="text-muted-foreground mb-1 font-sans text-[10px] font-semibold tracking-widest uppercase">
-          {product.category}
-        </p>
+        <div className="flex items-center justify-between mb-1">
+          <p className="text-muted-foreground font-sans text-[10px] font-semibold tracking-widest uppercase">
+            {product.subCategory}
+          </p>
+          <div className="flex items-center gap-1 text-xs font-semibold text-foreground">
+            <Star className="h-3 w-3 fill-primary text-primary" />
+            {product.rating}
+          </div>
+        </div>
 
         <h3 className="text-foreground font-geist line-clamp-1 text-base leading-snug font-medium">
           {product.title}
