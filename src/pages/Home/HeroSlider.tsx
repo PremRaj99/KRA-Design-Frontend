@@ -62,14 +62,14 @@ export const HeroSlider: React.FC = () => {
           <img
             src={SLIDES[currentIndex].image}
             alt={SLIDES[currentIndex].title}
-            className="h-full w-full object-cover"
+            className="h-full w-full mask-b-to-200 object-cover"
             loading={currentIndex === 0 ? 'eager' : 'lazy'}
           />
         </motion.div>
       </AnimatePresence>
 
       {/* 2. Gradient Overlay (z-10) - Darkened significantly to replace the glass box */}
-      <div className="pointer-events-none absolute inset-0 z-10 bg-linear-to-tr from-background/95 via-background/70 to-transparent md:via-background/40" />
+      <div className="pointer-events-none absolute inset-0 z-10" />
 
       {/* 3. Content Overlay (z-20) - Pure text, no background box */}
       <div className="pointer-events-none absolute inset-0 z-20 flex flex-col items-start justify-end pr-8 pb-16 pl-8 sm:pl-16 lg:pb-24 lg:pl-24">
@@ -86,7 +86,7 @@ export const HeroSlider: React.FC = () => {
               <h1 className="font-geist text-foreground mb-4 text-3xl font-extrabold tracking-tight drop-shadow-xl sm:text-5xl lg:text-6xl">
                 {SLIDES[currentIndex].title}
               </h1>
-              <p className="text-foreground/90 mb-4 md:mb-8 max-w-xl font-sans text-base drop-shadow-md sm:text-lg lg:text-xl">
+              <p className="text-foreground/90 mb-4 max-w-xl font-sans text-base drop-shadow-md sm:text-lg md:mb-8 lg:text-xl">
                 {SLIDES[currentIndex].subtitle}
               </p>
               <Button asChild size="lg" className="font-sans text-base shadow-lg">

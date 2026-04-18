@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Play, ShoppingBag, ArrowRight } from 'lucide-react';
+import { Play, ShoppingBag, ArrowRight, ArrowUpRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import reelVideo from '@/assets/reels/Video-524.mp4'; 
@@ -129,93 +129,100 @@ export const TrendingReels: React.FC = () => {
 
 // --- Sub-components ---
 
-const ShoppableReelCard: React.FC<{ reel: Reel }> = ({ reel }) => {
+export const ShoppableReelCard: React.FC<{ reel: Reel }> = ({ reel }) => {
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  // Play video on hover for desktop, or keep it autoplaying natively.
-  // Using native autoPlay muted playsInline ensures it works automatically on mobile browsers.
   useEffect(() => {
     if (videoRef.current) {
-      // Force play to ensure mobile browsers kick off the video if autoplay was blocked
       videoRef.current.play().catch(() => {
-        // Silently catch autoplay restrictions
+        // Silently catch autoplay restrictions on mobile
       });
     }
   }, []);
 
   return (
     <motion.div
-      className="group bg-muted relative aspect-[9/16] w-full cursor-pointer overflow-hidden rounded-2xl transition-transform duration-300"
-      whileHover={{ y: -8 }}
+      className="group relative aspect-9/16 w-full cursor-pointer overflow-hidden rounded-[20px] bg-muted shadow-sm transition-all duration-500 hover:shadow-xl"
+      initial="initial"
+      whileHover="hover"
     >
-      {/* Top Badges */}
-      <div className="absolute top-4 left-4 z-20 flex flex-col items-start gap-2">
+      {/* 1. Ultra-Minimalist Badges */}
+      <div className="absolute left-4 top-4 z-20 flex flex-col items-start gap-2">
         {reel.tag && (
-          <Badge
-            variant="secondary"
-            className="bg-background/60 text-foreground border-none font-sans text-xs font-semibold tracking-wider backdrop-blur-md"
-          >
+          <span className="rounded-full border border-border/40 bg-background/40 px-3 py-1 font-sans text-[9px] font-bold tracking-widest text-foreground uppercase backdrop-blur-md">
             {reel.tag}
-          </Badge>
+          </span>
         )}
         {reel.discountPercentage && (
-          <Badge
-            variant="destructive"
-            className="border-none font-sans text-xs font-bold shadow-sm"
-          >
+          <span className="rounded-full bg-destructive/20 border border-destructive/50 px-2.5 py-1 font-sans text-[10px] font-bold text-destructive shadow-sm">
             -{reel.discountPercentage}%
-          </Badge>
+          </span>
         )}
       </div>
 
-      {/* Video Background */}
-      <video
+      {/* 2. Cinematic Video Background */}
+      <motion.video
         ref={videoRef}
         src={reel.videoUrl}
         autoPlay
         loop
         muted
         playsInline
-        className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+        className="absolute inset-0 h-full w-full object-cover"
+        variants={{
+          initial: { scale: 1 },
+          hover: { scale: 1.07 },
+        }}
+        transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
       />
 
-      {/* Dark Gradient Overlay for Text Readability */}
-      <div className="from-background/95 via-background/40 group-hover:from-background pointer-events-none absolute inset-0 z-10 bg-gradient-to-t to-transparent transition-opacity duration-300" />
+      {/* 3. Deep, Smooth Gradient (Ensures text contrast without drop-shadows) */}
+      <div className="pointer-events-none absolute inset-0 z-10 bg-linear-to-t from-foreground/95 via-foreground/20 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-100" />
 
-      {/* Product Info & CTA overlay (Bottom Anchored) */}
-      <div className="absolute inset-x-0 bottom-0 z-20 flex flex-col p-5">
-        <h3 className="text-foreground font-geist line-clamp-2 text-lg leading-tight font-bold drop-shadow-md">
+      {/* 4. Content & CTA (Sliding up smoothly on hover) */}
+      <motion.div
+        className="absolute inset-x-0 bottom-0 z-20 flex flex-col px-5 pb-5 pt-12"
+        variants={{
+          initial: { y: 8 },
+          hover: { y: 0 },
+        }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+      >
+        <h3 className="font-geist text-background line-clamp-2 text-lg font-medium leading-snug tracking-tight">
           {reel.title}
         </h3>
 
-        <div className="mt-2 mb-4 flex items-center gap-2">
-          {reel.discountedPrice ? (
-            <>
-              <span className="text-primary font-sans text-xl font-extrabold drop-shadow-sm">
-                ${reel.discountedPrice.toLocaleString()}
-              </span>
-              <span className="text-muted-foreground font-sans text-sm font-medium line-through">
+        <div className="mt-3 flex items-end justify-between gap-4">
+          {/* Pricing Stack */}
+          <div className="flex flex-col">
+            {reel.discountedPrice ? (
+              <>
+                <span className="font-sans text-background/30 text-[11px] font-semibold uppercase tracking-wider line-through">
+                  ${reel.price.toLocaleString()}
+                </span>
+                <span className="font-sans text-background text-xl font-semibold">
+                  ${reel.discountedPrice.toLocaleString()}
+                </span>
+              </>
+            ) : (
+              <span className="font-sans text-background text-xl font-semibold">
                 ${reel.price.toLocaleString()}
               </span>
-            </>
-          ) : (
-            <span className="text-foreground font-sans text-xl font-bold drop-shadow-sm">
-              ${reel.price.toLocaleString()}
-            </span>
-          )}
-        </div>
+            )}
+          </div>
 
-        {/* Shoppable CTA */}
-        <Button
-          asChild
-          className="bg-foreground text-background hover:bg-primary hover:text-primary-foreground w-full font-sans transition-all active:scale-[0.98]"
-        >
-          <a href={reel.link}>
-            <ShoppingBag className="mr-2 h-4 w-4" />
-            Shop Now
+          {/* Premium Glassmorphic FAB (Floating Action Button) */}
+          <a
+            href={reel.link}
+            className="flex h-10 items-center justify-center gap-2 rounded-full border border-border/50 bg-background/50 px-4 font-sans text-sm font-medium text-foreground backdrop-blur-lg transition-all duration-300 hover:bg-foreground hover:text-primary hover:border-primary active:scale-95"
+            aria-label={`Shop ${reel.title}`}
+          >
+            <ShoppingBag className="h-4 w-4" />
+            <span className="hidden sm:inline-block">Shop</span>
+            <ArrowUpRight className="h-3.5 w-3.5 sm:hidden" />
           </a>
-        </Button>
-      </div>
+        </div>
+      </motion.div>
     </motion.div>
   );
 };
