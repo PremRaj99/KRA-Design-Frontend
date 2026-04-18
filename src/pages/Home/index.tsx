@@ -4,6 +4,8 @@ import { TopCategories } from './TopCategories';
 import { TrendingReels } from './TrendingReels';
 import { BentoCategories } from './BentoCategories';
 import { LatestBlogs } from './LatestBlogs';
+import { BulkOrderCTA } from '@/components/custom/BulkOrderCTA';
+import {Footer} from '@/components/custom/footer';
 // import { FeaturedCategories } from '@/components/custom/FeaturedCategories';
 
 export default function HomePage() {
@@ -25,6 +27,8 @@ export default function HomePage() {
       <TrendingReels />
       <BentoCategories />
       <LatestBlogs />
+      <BulkOrderCTA />
+      <Footer />
       {/* Subsequent Page Sections can go here */}
       {/* <div className="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
         <FeaturedCategories />
