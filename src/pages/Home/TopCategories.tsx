@@ -1,10 +1,8 @@
-import React, { useState, useMemo } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ShoppingBag, ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import { ProductCard, type Category, type Product } from '@/components/custom/ProductCard';
+import { Button } from '@/components/ui/button';
+import { AnimatePresence, motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
+import React, { useMemo, useState } from 'react';
 
 // --- Types & Mock Data ---
 

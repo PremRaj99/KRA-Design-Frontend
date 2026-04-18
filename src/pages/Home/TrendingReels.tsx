@@ -1,9 +1,9 @@
-import React, { useRef, useEffect } from 'react';
-import { motion, useInView } from 'framer-motion';
-import { Play, ShoppingBag, ArrowRight, ArrowUpRight } from 'lucide-react';
+import reelVideo from '@/assets/reels/Video-524.mp4';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import reelVideo from '@/assets/reels/Video-524.mp4'; 
+import { motion, useInView } from 'framer-motion';
+import { ArrowRight, ArrowUpRight, Play, ShoppingBag } from 'lucide-react';
+import React, { useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 // --- Types & Mock Data ---
 interface Reel {
@@ -109,7 +109,7 @@ export const TrendingReels: React.FC = () => {
             <motion.div
               key={reel.id}
               variants={itemVariants}
-              className="w-[85vw] min-w-[280px] shrink-0 snap-center sm:min-w-[320px] lg:w-auto"
+              className="w-[85vw] min-w-70 shrink-0 snap-center sm:min-w-[320px] lg:w-auto"
             >
               <ShoppableReelCard reel={reel} />
             </motion.div>
@@ -212,15 +212,15 @@ export const ShoppableReelCard: React.FC<{ reel: Reel }> = ({ reel }) => {
           </div>
 
           {/* Premium Glassmorphic FAB (Floating Action Button) */}
-          <a
-            href={reel.link}
-            className="flex h-10 items-center justify-center gap-2 rounded-full border border-border/50 bg-background/50 px-4 font-sans text-sm font-medium text-foreground backdrop-blur-lg transition-all duration-300 hover:bg-foreground hover:text-primary hover:border-primary active:scale-95"
+          <Link
+            to={reel.link}
+            className="flex h-10 items-center justify-center gap-2 rounded-full border border-border/50 bg-background/50 px-4 font-sans text-sm font-medium text-foreground backdrop-blur-lg transition-all duration-300 hover:bg-background active:scale-95"
             aria-label={`Shop ${reel.title}`}
           >
             <ShoppingBag className="h-4 w-4" />
             <span className="hidden sm:inline-block">Shop</span>
             <ArrowUpRight className="h-3.5 w-3.5 sm:hidden" />
-          </a>
+          </Link>
         </div>
       </motion.div>
     </motion.div>
