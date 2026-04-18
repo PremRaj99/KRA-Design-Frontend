@@ -1,4 +1,5 @@
 import { ProductCard, type Category, type Product } from '@/components/custom/ProductCard';
+import SectionHeading from '@/components/custom/SectionHeading';
 import { Button } from '@/components/ui/button';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
@@ -117,21 +118,12 @@ export const TopCategories: React.FC = () => {
     <section className="bg-background w-full py-16 sm:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="mb-10 flex flex-col items-center justify-between gap-6 md:flex-row md:items-end">
-          <div className="max-w-2xl text-center md:text-left">
-            <h2 className="font-geist text-foreground text-3xl font-bold tracking-tight sm:text-4xl">
-              Shop Top Categories
-            </h2>
-            <p className="text-muted-foreground mt-4 font-sans text-lg">
-              Explore our handpicked selection of premium home essentials, designed to elevate every
-              corner of your space.
-            </p>
-          </div>
-          <Button variant="ghost" className="text-primary hidden font-sans md:flex">
-            View All Products
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
-        </div>
+        <SectionHeading
+          title="Shop Top Categories"
+          subtitle="Explore our handpicked selection of premium home essentials, designed to elevate every corner of your space."
+          ctaText="View All Products"
+          ctaHref="/products"
+        />
 
         {/* Animated Tabs */}
         <div className="no-scrollbar border-border/50 mb-10 flex w-full overflow-x-auto border-b pb-px">

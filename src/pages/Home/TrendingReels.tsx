@@ -1,4 +1,5 @@
 import reelVideo from '@/assets/reels/Video-524.mp4';
+import SectionHeading from '@/components/custom/SectionHeading';
 import { Button } from '@/components/ui/button';
 import { motion, useInView } from 'framer-motion';
 import { ArrowRight, ArrowUpRight, Play, ShoppingBag } from 'lucide-react';
@@ -81,22 +82,16 @@ export const TrendingReels: React.FC = () => {
     <section ref={sectionRef} className="bg-background w-full overflow-hidden py-16 sm:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
-        <div className="mb-10 flex flex-col items-center justify-between gap-6 md:flex-row md:items-end">
-          <div className="max-w-2xl text-center md:text-left">
-            <h2 className="font-geist text-foreground flex items-center justify-center gap-2 text-3xl font-bold tracking-tight sm:text-4xl md:justify-start">
+        <SectionHeading
+          title={
+            <span className="flex items-center gap-2">
               <Play className="text-primary h-8 w-8 fill-current" />
               Trending Reels
-            </h2>
-            <p className="text-muted-foreground mt-4 font-sans text-lg">
-              See our best-selling appliances and furniture in action. Get inspired for your next
-              home upgrade.
-            </p>
-          </div>
-          <Button variant="ghost" className="text-primary hidden font-sans md:flex">
-            Watch All Reels
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
-        </div>
+            </span>
+          }
+          subtitle="See our best-selling appliances and furniture in action. Get inspired for your next home upgrade."
+          ctaText="Watch All Reels"
+        />
 
         {/* Reels Container: Horizontal snap scroll on Mobile, Grid on Desktop */}
         <motion.div
@@ -142,19 +137,19 @@ export const ShoppableReelCard: React.FC<{ reel: Reel }> = ({ reel }) => {
 
   return (
     <motion.div
-      className="group relative aspect-9/16 w-full cursor-pointer overflow-hidden rounded-[20px] bg-muted shadow-sm transition-all duration-500 hover:shadow-xl"
+      className="group bg-muted relative aspect-9/16 w-full cursor-pointer overflow-hidden rounded-[20px] shadow-sm transition-all duration-500 hover:shadow-xl"
       initial="initial"
       whileHover="hover"
     >
       {/* 1. Ultra-Minimalist Badges */}
-      <div className="absolute left-4 top-4 z-20 flex flex-col items-start gap-2">
+      <div className="absolute top-4 left-4 z-20 flex flex-col items-start gap-2">
         {reel.tag && (
-          <span className="rounded-full border border-border/40 bg-background/40 px-3 py-1 font-sans text-[9px] font-bold tracking-widest text-foreground uppercase backdrop-blur-md">
+          <span className="border-border/40 bg-background/40 text-foreground rounded-full border px-3 py-1 font-sans text-[9px] font-bold tracking-widest uppercase backdrop-blur-md">
             {reel.tag}
           </span>
         )}
         {reel.discountPercentage && (
-          <span className="rounded-full bg-destructive/20 border border-destructive/50 px-2.5 py-1 font-sans text-[10px] font-bold text-destructive shadow-sm">
+          <span className="bg-destructive/20 border-destructive/50 text-destructive rounded-full border px-2.5 py-1 font-sans text-[10px] font-bold shadow-sm">
             -{reel.discountPercentage}%
           </span>
         )}
@@ -177,18 +172,18 @@ export const ShoppableReelCard: React.FC<{ reel: Reel }> = ({ reel }) => {
       />
 
       {/* 3. Deep, Smooth Gradient (Ensures text contrast without drop-shadows) */}
-      <div className="pointer-events-none absolute inset-0 z-10 bg-linear-to-t from-foreground/95 via-foreground/20 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-100" />
+      <div className="from-foreground/95 via-foreground/20 pointer-events-none absolute inset-0 z-10 bg-linear-to-t to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-100" />
 
       {/* 4. Content & CTA (Sliding up smoothly on hover) */}
       <motion.div
-        className="absolute inset-x-0 bottom-0 z-20 flex flex-col px-5 pb-5 pt-12"
+        className="absolute inset-x-0 bottom-0 z-20 flex flex-col px-5 pt-12 pb-5"
         variants={{
           initial: { y: 8 },
           hover: { y: 0 },
         }}
-        transition={{ duration: 0.4, ease: "easeOut" }}
+        transition={{ duration: 0.4, ease: 'easeOut' }}
       >
-        <h3 className="font-geist text-background line-clamp-2 text-lg font-medium leading-snug tracking-tight">
+        <h3 className="font-geist text-background line-clamp-2 text-lg leading-snug font-medium tracking-tight">
           {reel.title}
         </h3>
 
@@ -197,15 +192,15 @@ export const ShoppableReelCard: React.FC<{ reel: Reel }> = ({ reel }) => {
           <div className="flex flex-col">
             {reel.discountedPrice ? (
               <>
-                <span className="font-sans text-background/30 text-[11px] font-semibold uppercase tracking-wider line-through">
+                <span className="text-background/30 font-sans text-[11px] font-semibold tracking-wider uppercase line-through">
                   ${reel.price.toLocaleString()}
                 </span>
-                <span className="font-sans text-background text-xl font-semibold">
+                <span className="text-background font-sans text-xl font-semibold">
                   ${reel.discountedPrice.toLocaleString()}
                 </span>
               </>
             ) : (
-              <span className="font-sans text-background text-xl font-semibold">
+              <span className="text-background font-sans text-xl font-semibold">
                 ${reel.price.toLocaleString()}
               </span>
             )}
@@ -214,7 +209,7 @@ export const ShoppableReelCard: React.FC<{ reel: Reel }> = ({ reel }) => {
           {/* Premium Glassmorphic FAB (Floating Action Button) */}
           <Link
             to={reel.link}
-            className="flex h-10 items-center justify-center gap-2 rounded-full border border-border/50 bg-background/50 px-4 font-sans text-sm font-medium text-foreground backdrop-blur-lg transition-all duration-300 hover:bg-background active:scale-95"
+            className="border-border/50 bg-background/50 text-foreground hover:bg-background flex h-10 items-center justify-center gap-2 rounded-full border px-4 font-sans text-sm font-medium backdrop-blur-lg transition-all duration-300 active:scale-95"
             aria-label={`Shop ${reel.title}`}
           >
             <ShoppingBag className="h-4 w-4" />

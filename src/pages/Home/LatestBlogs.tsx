@@ -3,6 +3,7 @@ import { motion, useInView } from 'framer-motion';
 import { Clock, ArrowRight, ArrowUpRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import SectionHeading from '@/components/custom/SectionHeading';
 
 // --- Types & Mock Data ---
 interface BlogPost {
@@ -77,20 +78,11 @@ export const LatestBlogs: React.FC = () => {
     <section ref={sectionRef} className="bg-background w-full py-16 sm:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="mb-10 flex flex-col items-center justify-between gap-6 md:mb-16 md:flex-row md:items-end">
-          <div className="max-w-2xl text-center md:text-left">
-            <h2 className="font-geist text-foreground text-3xl font-bold tracking-tight sm:text-4xl">
-              Journal & Insights
-            </h2>
-            <p className="text-muted-foreground mt-4 font-sans text-lg">
-              Expert design tips, appliance reviews, and inspiration for curating your perfect home.
-            </p>
-          </div>
-          <Button variant="ghost" className="text-primary hover:bg-muted hidden font-sans md:flex">
-            View All Articles
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
-        </div>
+        <SectionHeading
+          title="Journal & Insights"
+          subtitle="Expert design tips, appliance reviews, and inspiration for curating your perfect home."
+          ctaText="View All Articles"
+        />
 
         {/* 6-Column, 2-Row Bento Grid */}
         <motion.div

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import SectionHeading from '@/components/custom/SectionHeading';
 
 // --- Types & Data ---
 interface BentoItem {
@@ -71,14 +72,7 @@ export const BentoCategories: React.FC = () => {
     <section className="bg-background w-full py-16 sm:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="mb-10 text-center md:mb-14">
-          <h2 className="font-geist text-foreground text-3xl font-bold tracking-tight sm:text-4xl">
-            Popular Categories
-          </h2>
-          <p className="text-muted-foreground mt-4 font-sans text-lg">
-            Curated collections to transform every room in your home.
-          </p>
-        </div>
+        <SectionHeading title='Popular Categories' subtitle='Curated collections to transform every room in your home.' />
 
         {/* Bento Grid */}
         <motion.div

@@ -45,7 +45,7 @@ export const HeroSlider: React.FC = () => {
 
   return (
     <section
-      className="h-body bg-muted relative min-h-150 w-full overflow-hidden"
+      className="h-body max-h-200 bg-muted relative min-h-150 w-full overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -72,7 +72,7 @@ export const HeroSlider: React.FC = () => {
       <div className="pointer-events-none absolute inset-0 z-10" />
 
       {/* 3. Content Overlay (z-20) - Pure text, no background box */}
-      <div className="pointer-events-none absolute inset-0 z-20 flex flex-col items-start justify-end pr-8 pb-16 pl-8 sm:pl-16 lg:pb-24 lg:pl-24">
+      <div className="pointer-events-none absolute inset-0 max-w-7xl w-full mx-auto z-20 flex flex-col items-start justify-end px-8 pb-12 sm:pl-16 lg:pb-24">
         <div className="pointer-events-auto max-w-3xl">
           <AnimatePresence mode="wait">
             <motion.div
@@ -89,7 +89,7 @@ export const HeroSlider: React.FC = () => {
               <p className="text-foreground/90 mb-4 max-w-xl font-sans text-base drop-shadow-md sm:text-lg md:mb-8 lg:text-xl">
                 {SLIDES[currentIndex].subtitle}
               </p>
-              <Button asChild size="lg" className="font-sans text-base shadow-lg">
+              <Button asChild size="lg" className="font-sans text-base shadow-lg px-8 py-6">
                 <a href={SLIDES[currentIndex].link}>{SLIDES[currentIndex].cta}</a>
               </Button>
             </motion.div>
