@@ -8,6 +8,8 @@ import NotFound from '@/pages/Not-Found';
 import Contact from '@/pages/Contact';
 import About from '@/pages/About';
 import CollectionPage from '@/pages/Collections';
+import ReelPage from '@/pages/Reel';
+import BlogPage from '@/pages/Blog';
 
 export const router = createBrowserRouter([
   {
@@ -17,7 +19,9 @@ export const router = createBrowserRouter([
 
       { path: '/login', element: <Login /> },
       { path: '/signup', element: <Signup /> },
-      { path: '/collections', element: <CollectionPage /> }, // Placeholder for Collections page
+      { path: '/collections', element: <CollectionPage /> },
+      { path: '/reels', element: <ReelPage /> },
+      { path: '/blogs', element: <BlogPage /> },
       { path: '/contact', element: <Contact /> },
       { path: '/about', element: <About /> },
       { path: '*', element: <NotFound /> },
