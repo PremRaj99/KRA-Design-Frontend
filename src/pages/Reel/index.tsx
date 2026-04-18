@@ -12,7 +12,6 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
-import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import reelVideo from '@/assets/reels/Video-524.mp4';
 
