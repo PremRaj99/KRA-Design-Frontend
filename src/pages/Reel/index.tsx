@@ -322,7 +322,7 @@ export const ShoppableReelCard: React.FC<{ reel: Reel }> = ({ reel }) => {
 
       {/* 3. Deep, Smooth Gradient (Ensures text contrast without drop-shadows) */}
       {/* Used pure black colors for the gradient to guarantee white text readability on any theme */}
-      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-100" />
+      <div className="pointer-events-none absolute inset-0 z-10 bg-linear-to-t from-black/90 via-black/20 to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-100" />
 
       {/* 4. Content & CTA (Sliding up smoothly on hover) */}
       <motion.div
