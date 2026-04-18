@@ -111,12 +111,12 @@ src/
 
 We enforce a strict, semantic design system using OKLCH CSS variables. Hardcoded hex values or default Tailwind colors (e.g., `bg-blue-500`) are prohibited to ensure 100% accurate Dark Mode switching and effortless global theming.
 
-| Element     | CSS Variable                                   | Description                          |
-| ----------- | ---------------------------------------------- | ------------------------------------ |
-| Backgrounds | "bg-background, bg-card, bg-muted"             | Primary surfaces and elevated cards. |
-| Text        | "text-foreground, text-muted-foreground"       | Standard and secondary typography.   |
-| Actions     | "bg-primary, bg-secondary, bg-accent","Buttons | highlights, and interactive states." |
-| Borders     | "border-border, ring-ring"                     | Dividers and focus rings.            |
+| Element     | CSS Variable                               | Description                                  |
+| ----------- | ------------------------------------------ | -------------------------------------------- |
+| Backgrounds | `bg-background`, `bg-card`, `bg-muted`     | Primary surfaces and elevated cards.         |
+| Text        | `text-foreground`, `text-muted-foreground` | Standard and secondary typography.           |
+| Actions     | `bg-primary`, `bg-secondary`, `bg-accent`  | Buttons, highlights, and interactive states. |
+| Borders     | `border-border`, `ring-ring`               | Dividers and focus rings.                    |
 
 <hr />
 
@@ -124,7 +124,7 @@ We enforce a strict, semantic design system using OKLCH CSS variables. Hardcoded
 
 Search Engine Optimization is treated as a first-class citizen. Every page dynamically updates its head metadata:
 
-```bash
+```jsx
 <Helmet>
   <title>Living Room Essentials | KRA Design</title>
   <meta name="description" content="Elevate your gathering spaces with our curated selection of modern sofas." />
@@ -134,6 +134,7 @@ Search Engine Optimization is treated as a first-class citizen. Every page dynam
 <hr/>
 
 ## 🧩 Future Improvements & Roadmap
+
 - 🛒 Cart & Checkout system integration
 - 🔐 Authentication (User/Admin portals)
 - 📦 Order Management interface
@@ -158,11 +159,11 @@ Search Engine Optimization is treated as a first-class citizen. Every page dynam
 
 Contributions are welcome! If you'd like to improve KRA Design:
 
-1) Fork the repository
-2) reate a new feature branch (git checkout -b feature/AmazingFeature)
-3) Commit your changes (git commit -m 'Add some AmazingFeature')
-4) Push to the branch (git push origin feature/AmazingFeature)
-5) Open a Pull Request
+1. Fork the repository
+2. Create a new feature branch (git checkout -b feature/AmazingFeature)
+3. Commit your changes (git commit -m 'Add some AmazingFeature')
+4. Push to the branch (git push origin feature/AmazingFeature)
+5. Open a Pull Request
 
 <hr/>
 
@@ -173,8 +174,8 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 <div align="center">
 <b>Built with a focus on real-world scalability and production standards.</b>
 
-
 <i>Consistency is key — avoid adding random components or breaking the design system.</i>
+
 </div>
 
 <br />
@@ -182,6 +183,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 <div align="center">
 Created by <b>Prem Raj</b>
 
-
 <i>Frontend Developer | Full Stack Engineer</i>
+
 </div>
