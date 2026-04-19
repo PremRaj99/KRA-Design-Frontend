@@ -11,6 +11,11 @@ import ReelPage from '@/pages/Reel';
 import BlogPage from '@/pages/Blog';
 import ProductDetailPage from '@/pages/Collections/[id]';
 import BlogDetailPage from '@/pages/Blog/[id]';
+import TermsPage from '@/pages/Terms-Conditions';
+import ShippingPolicy from '@/pages/Shipping-Policy';
+import RefundPolicy from '@/pages/Refund-Policy';
+import FAQ from '@/pages/FAQ';
+import PrivacyPolicy from '@/pages/Privacy-Policy';
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +31,12 @@ export const router = createBrowserRouter([
       { path: '/blog/:id', element: <BlogDetailPage /> },
       { path: '/contact', element: <Contact /> },
       { path: '/about', element: <About /> },
+      { path: '/terms', element: <TermsPage /> },
+      { path: '/shipping', element: <ShippingPolicy /> },
+      { path: '/refund', element: <RefundPolicy /> },
+      { path: '/faq', element: <FAQ /> },
+      { path: '/privacy', element: <PrivacyPolicy /> },
+
       { path: '*', element: <NotFound /> },
     ],
   },

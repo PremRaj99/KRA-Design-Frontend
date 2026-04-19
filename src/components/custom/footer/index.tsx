@@ -49,7 +49,7 @@ const FOOTER_NAVIGATION: FooterSection[] = [
       { label: 'Shipping & Returns', href: '/shipping' },
       { label: 'FAQ', href: '/faq' },
       { label: 'Track Order', href: '/track-order' },
-      { label: 'Warranty', href: '/warranty' },
+      { label: 'Returns & Refunds', href: '/refund' },
     ],
   },
 ];
