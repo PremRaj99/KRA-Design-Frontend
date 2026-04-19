@@ -14,7 +14,7 @@ const SLIDES = [
     subtitle:
       'Discover our premium collection of mid-century modern sofas and minimalist coffee tables.',
     cta: 'Shop Living Room',
-    link: '/category/home-living',
+    link: '/collections/home-living',
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ const SLIDES = [
     title: 'Sanctuary of Sleep',
     subtitle: 'Experience ultimate comfort with our orthopedic mattresses and luxury bed frames.',
     cta: 'Explore Bedroom',
-    link: '/category/bedroom',
+    link: '/collections/bedroom',
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ const SLIDES = [
     subtitle:
       'Reflect your unique style with our handcrafted, limited-edition floor and wall mirrors.',
     cta: 'View Collection',
-    link: '/category/signature-mirrors',
+    link: '/collections/signature-mirrors',
   },
 ];
 

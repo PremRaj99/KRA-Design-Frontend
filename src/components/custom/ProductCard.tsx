@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ShoppingBag, Star } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-
+import { useNavigate } from 'react-router-dom';
 // Note: Ensure your Product interface is imported/available here
 // interface Product { ... }
 
@@ -23,11 +23,13 @@ export interface Product {
 }
 
 export const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
+  const navigate = useNavigate();
   return (
     <motion.div
       className="group flex h-full cursor-pointer flex-col"
       initial="initial"
       whileHover="hover"
+      onClick={() => navigate(`/collections/${product.id}`)}
     >
       {/* 1. Image & Badges Container (The Hero) */}
       <div className="bg-muted/50 relative aspect-square w-full overflow-hidden rounded-xl transition-all duration-300">

@@ -28,7 +28,7 @@ const MOCK_REELS: Reel[] = [
     discountedPrice: 749,
     discountPercentage: 16,
     tag: '#CoffeeLover',
-    link: '/product/smart-espresso-machine',
+    link: '/collections/smart-espresso-machine',
   },
   {
     id: 'reel-2',
@@ -36,7 +36,7 @@ const MOCK_REELS: Reel[] = [
     title: 'Minimalist Humidifier',
     price: 120,
     tag: '#HomeDecor',
-    link: '/product/minimalist-humidifier',
+    link: '/collections/minimalist-humidifier',
   },
   {
     id: 'reel-3',
@@ -46,7 +46,7 @@ const MOCK_REELS: Reel[] = [
     discountedPrice: 350,
     discountPercentage: 22,
     tag: '#Trending',
-    link: '/product/velvet-swivel-chair',
+    link: '/collections/velvet-swivel-chair',
   },
   {
     id: 'reel-4',
@@ -56,7 +56,7 @@ const MOCK_REELS: Reel[] = [
     discountedPrice: 249,
     discountPercentage: 16,
     tag: '#Wellness',
-    link: '/product/air-purifier-pro',
+    link: '/collections/air-purifier-pro',
   },
 ];
 
@@ -91,6 +91,7 @@ export const TrendingReels: React.FC = () => {
           }
           subtitle="See our best-selling appliances and furniture in action. Get inspired for your next home upgrade."
           ctaText="Watch All Reels"
+          ctaHref='/reels'
         />
 
         {/* Reels Container: Horizontal snap scroll on Mobile, Grid on Desktop */}

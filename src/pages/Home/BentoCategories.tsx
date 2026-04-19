@@ -20,7 +20,7 @@ const BENTO_CATEGORIES: BentoItem[] = [
     title: 'Living Room Essentials',
     image:
       'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=1200&auto=format&fit=crop',
-    href: '/category/living-room',
+    href: '/collections/living-room',
     // Top Left: 3 cols wide, 1 row tall
     gridClass: 'md:col-span-2 lg:col-span-3 lg:row-span-1',
   },
@@ -29,7 +29,7 @@ const BENTO_CATEGORIES: BentoItem[] = [
     title: 'Signature Lighting',
     image:
       'https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800&auto=format&fit=crop',
-    href: '/category/lighting',
+    href: '/collections/lighting',
     // Middle Vertical: 1 col wide, 2 rows tall
     gridClass: 'md:col-span-1 lg:col-span-1 lg:row-span-2',
   },
@@ -38,7 +38,7 @@ const BENTO_CATEGORIES: BentoItem[] = [
     title: 'Luxury Bedroom',
     image:
       'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?q=80&w=800&auto=format&fit=crop',
-    href: '/category/bedroom',
+    href: '/collections/bedroom',
     // Top Right: 2 cols wide, 2 rows tall
     gridClass: 'md:col-span-1 lg:col-span-2 lg:row-span-2',
   },
@@ -47,7 +47,7 @@ const BENTO_CATEGORIES: BentoItem[] = [
     title: 'Modern Kitchen',
     image:
       'https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=1200&auto=format&fit=crop',
-    href: '/category/kitchen',
+    href: '/collections/kitchen',
     // Bottom Left: 3 cols wide, 1 row tall
     gridClass: 'md:col-span-2 lg:col-span-3 lg:row-span-1',
   },

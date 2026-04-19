@@ -40,7 +40,7 @@ const MOCK_BLOGS: BlogPost[] = [
     date: 'April 12, 2026',
     imageUrl:
       'https://images.unsplash.com/photo-1600210491369-e753d80a41f3?q=80&w=1200&auto=format&fit=crop',
-    href: '/journal/minimalist-living',
+    href: '/blog/minimalist-living',
   },
   {
     id: 'blog-2',
@@ -52,7 +52,7 @@ const MOCK_BLOGS: BlogPost[] = [
     date: 'April 08, 2026',
     imageUrl:
       'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=800&auto=format&fit=crop',
-    href: '/journal/smart-kitchen-appliances',
+    href: '/blog/smart-kitchen-appliances',
   },
   {
     id: 'blog-3',
@@ -64,7 +64,7 @@ const MOCK_BLOGS: BlogPost[] = [
     date: 'April 02, 2026',
     imageUrl:
       'https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800&auto=format&fit=crop',
-    href: '/journal/layered-lighting-guide',
+    href: '/blog/layered-lighting-guide',
   },
   {
     id: 'blog-4',
@@ -76,7 +76,7 @@ const MOCK_BLOGS: BlogPost[] = [
     date: 'March 28, 2026',
     imageUrl:
       'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=800&auto=format&fit=crop',
-    href: '/journal/mid-century-modern-return',
+    href: '/blog/mid-century-modern-return',
   },
   {
     id: 'blog-5',
@@ -88,7 +88,7 @@ const MOCK_BLOGS: BlogPost[] = [
     date: 'March 21, 2026',
     imageUrl:
       'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?q=80&w=800&auto=format&fit=crop',
-    href: '/journal/sustainable-materials',
+    href: '/blog/sustainable-materials',
   },
 ];
 

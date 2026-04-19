@@ -41,7 +41,7 @@ export const TopCategories: React.FC = () => {
           title="Shop Top Categories"
           subtitle="Explore our handpicked selection of premium home essentials, designed to elevate every corner of your space."
           ctaText="View All Products"
-          ctaHref="/products"
+          ctaHref="/collections"
         />
 
         {/* Animated Tabs */}

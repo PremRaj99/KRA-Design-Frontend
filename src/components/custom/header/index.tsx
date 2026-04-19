@@ -35,7 +35,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 // --- Data Constants ---
 const PRIMARY_NAV = [
@@ -86,6 +86,7 @@ const slideInItem = {
 export const Header: React.FC = () => {
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   return (
     <header className="bg-background/95 supports-backdrop-filter:bg-background/80 sticky top-0 z-50 flex w-full flex-col backdrop-blur">
@@ -143,7 +144,7 @@ export const Header: React.FC = () => {
 
           {/* Action Icons with Micro-interactions */}
           <div className="flex shrink-0 items-center gap-2 sm:gap-4">
-            <Button variant="ghost" size="icon" aria-label="Search" asChild>
+            <Button variant="ghost" onClick={() => navigate('/collections')} size="icon" aria-label="Search" asChild>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -163,14 +164,14 @@ export const Header: React.FC = () => {
                 <motion.span
                   initial={{ scale: 0 }}
                   animate={{ scale: 1 }}
-                  className="bg-primary text-primary-foreground absolute top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full font-sans text-[10px] font-bold"
+                  className="bg-primary text-primary-foreground absolute top-0 right-0 flex size-3 items-center justify-center rounded-full font-sans text-[8px] font-bold"
                 >
                   3
                 </motion.span>
               </motion.button>
             </Button>
 
-            <ProfileDropdown />
+            <ProfileDropdown isLoggedIn={!!false} />
           </div>
         </div>
       </div>
@@ -188,7 +189,7 @@ export const Header: React.FC = () => {
                 onMouseLeave={() => setActiveCategory(null)}
               >
                 <Link
-                  to={`/category/${category.title.toLowerCase().replace(/\s+/g, '-')}`}
+                  to={`/collections/${category.title.toLowerCase().replace(/\s+/g, '-')}`}
                   className={`text-muted-foreground hover:text-foreground flex cursor-pointer items-center gap-1 py-2 font-sans text-[13px] font-medium whitespace-nowrap transition-colors ${
                     activeCategory === category.title ? 'text-foreground' : ''
                   }`}
@@ -231,7 +232,7 @@ export const Header: React.FC = () => {
                           {category.sub.map((subItem) => (
                             <Link
                               key={subItem}
-                              to={`/category/${category.title.toLowerCase().replace(/\s+/g, '-')}/${subItem.toLowerCase().replace(/\s+/g, '-')}`}
+                              to={`/collections/${subItem.toLowerCase().replace(/\s+/g, '-')}`}
                               className="text-muted-foreground hover:bg-accent hover:text-accent-foreground rounded-sm px-3 py-2 text-sm whitespace-nowrap transition-colors"
                             >
                               {subItem}
@@ -322,7 +323,7 @@ const MobileNav = () => (
                     <AccordionContent className="border-border/50 mt-1 ml-2 flex flex-col gap-3 border-l pb-4 pl-4">
                       <motion.a
                         whileHover={{ x: 4 }}
-                        href={`/category/${category.title.toLowerCase().replace(/\s+/g, '-')}`}
+                        href={`/collections/${category.title.toLowerCase().replace(/\s+/g, '-')}`}
                         className="text-foreground text-sm font-semibold"
                       >
                         View All {category.title}
@@ -331,7 +332,7 @@ const MobileNav = () => (
                         <motion.a
                           whileHover={{ x: 4 }}
                           key={sub}
-                          href={`/category/${category.title.toLowerCase().replace(/\s+/g, '-')}/${sub.toLowerCase().replace(/\s+/g, '-')}`}
+                          href={`/collections/${sub.toLowerCase().replace(/\s+/g, '-')}`}
                           className="text-muted-foreground hover:text-foreground font-sans text-sm transition-colors"
                         >
                           {sub}
@@ -342,7 +343,7 @@ const MobileNav = () => (
                 ) : (
                   <motion.a
                     whileHover={{ x: 4 }}
-                    href={`/category/${category.title.toLowerCase().replace(/\s+/g, '-')}`}
+                    href={`/collections/${category.title.toLowerCase().replace(/\s+/g, '-')}`}
                     className="text-muted-foreground hover:text-foreground flex flex-1 items-center justify-between py-3 font-sans text-base font-medium"
                   >
                     {category.title}
@@ -357,10 +358,17 @@ const MobileNav = () => (
   </Sheet>
 );
 
-const ProfileDropdown = () => (
-  <DropdownMenu>
-    <DropdownMenuTrigger asChild>
-      <Button variant="ghost" size="icon" aria-label="Profile" asChild>
+const ProfileDropdown = ({ isLoggedIn }: { isLoggedIn: boolean }) => {
+  const navigate = useNavigate();
+  if (!isLoggedIn) {
+    return (
+      <Button
+        variant="ghost"
+        size="icon"
+        aria-label="Login"
+        onClick={() => navigate(`/login`)}
+        asChild
+      >
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -369,35 +377,50 @@ const ProfileDropdown = () => (
           <User className="h-5 w-5" />
         </motion.button>
       </Button>
-    </DropdownMenuTrigger>
-    <DropdownMenuContent
-      className="bg-popover text-popover-foreground border-border w-56"
-      align="end"
-      forceMount
-    >
-      <DropdownMenuLabel className="font-geist font-normal">
-        <div className="flex flex-col space-y-1">
-          <p className="text-foreground text-sm leading-none font-medium">John Doe</p>
-          <p className="text-muted-foreground text-xs leading-none">john.doe@example.com</p>
-        </div>
-      </DropdownMenuLabel>
-      <DropdownMenuSeparator className="bg-border" />
-      <DropdownMenuGroup>
-        {PROFILE_MENU.map((item) => (
-          <DropdownMenuItem
-            key={item.label}
-            className="focus:bg-accent focus:text-accent-foreground cursor-pointer font-sans"
-          >
-            <item.icon className="mr-2 h-4 w-4" />
-            <span>{item.label}</span>
+    );
+  } else
+    return (
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="ghost" size="icon" aria-label="Profile" asChild>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="text-foreground hover:bg-muted hover:text-primary"
+            >
+              <User className="h-5 w-5" />
+            </motion.button>
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent
+          className="bg-popover text-popover-foreground border-border w-56"
+          align="end"
+          forceMount
+        >
+          <DropdownMenuLabel className="font-geist font-normal">
+            <div className="flex flex-col space-y-1">
+              <p className="text-foreground text-sm leading-none font-medium">John Doe</p>
+              <p className="text-muted-foreground text-xs leading-none">john.doe@example.com</p>
+            </div>
+          </DropdownMenuLabel>
+          <DropdownMenuSeparator className="bg-border" />
+          <DropdownMenuGroup>
+            {PROFILE_MENU.map((item) => (
+              <DropdownMenuItem
+                key={item.label}
+                className="focus:bg-accent focus:text-accent-foreground cursor-pointer font-sans"
+              >
+                <item.icon className="mr-2 h-4 w-4" />
+                <span>{item.label}</span>
+              </DropdownMenuItem>
+            ))}
+          </DropdownMenuGroup>
+          <DropdownMenuSeparator className="bg-border" />
+          <DropdownMenuItem className="text-destructive focus:bg-destructive/10 focus:text-destructive cursor-pointer font-sans">
+            <LogOut className="mr-2 h-4 w-4" />
+            <span>Log out</span>
           </DropdownMenuItem>
-        ))}
-      </DropdownMenuGroup>
-      <DropdownMenuSeparator className="bg-border" />
-      <DropdownMenuItem className="text-destructive focus:bg-destructive/10 focus:text-destructive cursor-pointer font-sans">
-        <LogOut className="mr-2 h-4 w-4" />
-        <span>Log out</span>
-      </DropdownMenuItem>
-    </DropdownMenuContent>
-  </DropdownMenu>
-);
+        </DropdownMenuContent>
+      </DropdownMenu>
+    );
+};

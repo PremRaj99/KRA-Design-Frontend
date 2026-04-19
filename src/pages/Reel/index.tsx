@@ -40,7 +40,7 @@ const MOCK_REELS: Reel[] = [
     discountedPrice: 749,
     discountPercentage: 16,
     tag: '#CoffeeLover',
-    link: '/product/smart-espresso-machine',
+    link: '/collections/smart-espresso-machine',
   },
   {
     id: 'reel-2',
@@ -48,7 +48,7 @@ const MOCK_REELS: Reel[] = [
     title: 'Minimalist Humidifier',
     price: 120,
     tag: '#HomeDecor',
-    link: '/product/minimalist-humidifier',
+    link: '/collections/minimalist-humidifier',
   },
   {
     id: 'reel-3',
@@ -58,7 +58,7 @@ const MOCK_REELS: Reel[] = [
     discountedPrice: 350,
     discountPercentage: 22,
     tag: '#Trending',
-    link: '/product/velvet-swivel-chair',
+    link: '/collections/velvet-swivel-chair',
   },
   {
     id: 'reel-4',
@@ -68,7 +68,7 @@ const MOCK_REELS: Reel[] = [
     discountedPrice: 249,
     discountPercentage: 16,
     tag: '#Wellness',
-    link: '/product/air-purifier-pro',
+    link: '/collections/air-purifier-pro',
   },
   {
     id: 'reel-5',
@@ -76,7 +76,7 @@ const MOCK_REELS: Reel[] = [
     title: 'Ceramic Table Lamp',
     price: 149,
     tag: '#Lighting',
-    link: '/product/ceramic-table-lamp',
+    link: '/collections/ceramic-table-lamp',
   },
   {
     id: 'reel-6',
@@ -86,7 +86,7 @@ const MOCK_REELS: Reel[] = [
     discountedPrice: 550,
     discountPercentage: 15,
     tag: '#LivingRoom',
-    link: '/product/marble-coffee-table',
+    link: '/collections/marble-coffee-table',
   },
   {
     id: 'reel-7',
@@ -94,7 +94,7 @@ const MOCK_REELS: Reel[] = [
     title: 'Linen Duvet Set',
     price: 180,
     tag: '#Bedroom',
-    link: '/product/linen-duvet',
+    link: '/collections/linen-duvet',
   },
   {
     id: 'reel-8',
@@ -104,7 +104,7 @@ const MOCK_REELS: Reel[] = [
     discountedPrice: 550,
     discountPercentage: 15,
     tag: '#LivingRoom',
-    link: '/product/marble-coffee-table',
+    link: '/collections/marble-coffee-table',
   },
   {
     id: 'reel-9',
@@ -112,7 +112,7 @@ const MOCK_REELS: Reel[] = [
     title: 'Linen Duvet Set',
     price: 180,
     tag: '#Bedroom',
-    link: '/product/linen-duvet',
+    link: '/collections/linen-duvet',
   },
   {
     id: 'reel-10',
@@ -122,7 +122,7 @@ const MOCK_REELS: Reel[] = [
     discountedPrice: 550,
     discountPercentage: 15,
     tag: '#LivingRoom',
-    link: '/product/marble-coffee-table',
+    link: '/collections/marble-coffee-table',
   },
   {
     id: 'reel-11',
@@ -130,7 +130,7 @@ const MOCK_REELS: Reel[] = [
     title: 'Linen Duvet Set',
     price: 180,
     tag: '#Bedroom',
-    link: '/product/linen-duvet',
+    link: '/collections/linen-duvet',
   },
   {
     id: 'reel-12',
@@ -138,7 +138,7 @@ const MOCK_REELS: Reel[] = [
     title: 'Linen Duvet Set',
     price: 180,
     tag: '#Bedroom',
-    link: '/product/linen-duvet',
+    link: '/collections/linen-duvet',
   },
   {
     id: 'reel-13',
@@ -146,7 +146,7 @@ const MOCK_REELS: Reel[] = [
     title: 'Linen Duvet Set',
     price: 180,
     tag: '#Bedroom',
-    link: '/product/linen-duvet',
+    link: '/collections/linen-duvet',
   },
   {
     id: 'reel-14',
@@ -154,7 +154,7 @@ const MOCK_REELS: Reel[] = [
     title: 'Linen Duvet Set',
     price: 180,
     tag: '#Bedroom',
-    link: '/product/linen-duvet',
+    link: '/collections/linen-duvet',
   },
 ];
 

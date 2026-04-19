@@ -25,10 +25,10 @@ const FOOTER_NAVIGATION: FooterSection[] = [
   {
     title: 'Shop',
     links: [
-      { label: 'Living Room', href: '/category/living-room' },
-      { label: 'Bedroom', href: '/category/bedroom' },
-      { label: 'Kitchen & Dining', href: '/category/dining' },
-      { label: 'Signature Mirrors', href: '/category/signature-mirrors' },
+      { label: 'Living Room', href: '/collections/living-room' },
+      { label: 'Bedroom', href: '/collections/bedroom' },
+      { label: 'Kitchen & Dining', href: '/collections/kitchen' },
+      { label: 'Signature Mirrors', href: '/collections/signature-mirrors' },
       { label: 'New Arrivals', href: '/new-arrivals' },
     ],
   },

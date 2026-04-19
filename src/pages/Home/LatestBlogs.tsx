@@ -28,7 +28,7 @@ const MOCK_BLOGS: BlogPost[] = [
     date: 'April 12, 2026',
     imageUrl:
       'https://images.unsplash.com/photo-1600210491369-e753d80a41f3?q=80&w=1200&auto=format&fit=crop',
-    href: '/journal/minimalist-living',
+    href: '/blog/minimalist-living',
   },
   {
     id: 'blog-2',
@@ -40,7 +40,7 @@ const MOCK_BLOGS: BlogPost[] = [
     date: 'April 08, 2026',
     imageUrl:
       'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=800&auto=format&fit=crop',
-    href: '/journal/smart-kitchen-appliances',
+    href: '/blog/smart-kitchen-appliances',
   },
   {
     id: 'blog-3',
@@ -52,7 +52,7 @@ const MOCK_BLOGS: BlogPost[] = [
     date: 'April 02, 2026',
     imageUrl:
       'https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800&auto=format&fit=crop',
-    href: '/journal/layered-lighting-guide',
+    href: '/blog/layered-lighting-guide',
   },
 ];
 
@@ -82,6 +82,7 @@ export const LatestBlogs: React.FC = () => {
           title="Journal & Insights"
           subtitle="Expert design tips, appliance reviews, and inspiration for curating your perfect home."
           ctaText="View All Articles"
+          ctaHref='/blogs'
         />
 
         {/* 6-Column, 2-Row Bento Grid */}
