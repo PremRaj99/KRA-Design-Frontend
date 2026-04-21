@@ -1,9 +1,10 @@
+import { AnimatePresence, motion } from 'framer-motion';
+import { ArrowUpRight, Play, ShoppingBag } from 'lucide-react';
 import React, { useEffect, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Play, ArrowUpRight, ShoppingBag } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+import { Badge } from '@/components/ui/badge';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -12,8 +13,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
-import { Badge } from '@/components/ui/badge';
-import reelVideo from '@/assets/reels/Video-524.mp4';
+import { MOCK_REELS } from '@/data/reelData';
 
 // Note: Ensure you import your actual video file if needed, or use URLs
 // import reelVideo from '@/assets/reels/Video-524.mp4';
@@ -29,134 +29,6 @@ export interface Reel {
   tag?: string;
   link: string;
 }
-
-// Expanded mock data to properly fill out a Bento grid layout
-const MOCK_REELS: Reel[] = [
-  {
-    id: 'reel-1',
-    videoUrl: reelVideo,
-    title: 'Smart Espresso Machine',
-    price: 899,
-    discountedPrice: 749,
-    discountPercentage: 16,
-    tag: '#CoffeeLover',
-    link: '/collections/smart-espresso-machine',
-  },
-  {
-    id: 'reel-2',
-    videoUrl: reelVideo,
-    title: 'Minimalist Humidifier',
-    price: 120,
-    tag: '#HomeDecor',
-    link: '/collections/minimalist-humidifier',
-  },
-  {
-    id: 'reel-3',
-    videoUrl: reelVideo,
-    title: 'Velvet Swivel Chair',
-    price: 450,
-    discountedPrice: 350,
-    discountPercentage: 22,
-    tag: '#Trending',
-    link: '/collections/velvet-swivel-chair',
-  },
-  {
-    id: 'reel-4',
-    videoUrl: reelVideo,
-    title: 'Air Purifier Pro',
-    price: 299,
-    discountedPrice: 249,
-    discountPercentage: 16,
-    tag: '#Wellness',
-    link: '/collections/air-purifier-pro',
-  },
-  {
-    id: 'reel-5',
-    videoUrl: reelVideo,
-    title: 'Ceramic Table Lamp',
-    price: 149,
-    tag: '#Lighting',
-    link: '/collections/ceramic-table-lamp',
-  },
-  {
-    id: 'reel-6',
-    videoUrl: reelVideo,
-    title: 'Marble Coffee Table',
-    price: 650,
-    discountedPrice: 550,
-    discountPercentage: 15,
-    tag: '#LivingRoom',
-    link: '/collections/marble-coffee-table',
-  },
-  {
-    id: 'reel-7',
-    videoUrl: reelVideo,
-    title: 'Linen Duvet Set',
-    price: 180,
-    tag: '#Bedroom',
-    link: '/collections/linen-duvet',
-  },
-  {
-    id: 'reel-8',
-    videoUrl: reelVideo,
-    title: 'Marble Coffee Table',
-    price: 650,
-    discountedPrice: 550,
-    discountPercentage: 15,
-    tag: '#LivingRoom',
-    link: '/collections/marble-coffee-table',
-  },
-  {
-    id: 'reel-9',
-    videoUrl: reelVideo,
-    title: 'Linen Duvet Set',
-    price: 180,
-    tag: '#Bedroom',
-    link: '/collections/linen-duvet',
-  },
-  {
-    id: 'reel-10',
-    videoUrl: reelVideo,
-    title: 'Marble Coffee Table',
-    price: 650,
-    discountedPrice: 550,
-    discountPercentage: 15,
-    tag: '#LivingRoom',
-    link: '/collections/marble-coffee-table',
-  },
-  {
-    id: 'reel-11',
-    videoUrl: reelVideo,
-    title: 'Linen Duvet Set',
-    price: 180,
-    tag: '#Bedroom',
-    link: '/collections/linen-duvet',
-  },
-  {
-    id: 'reel-12',
-    videoUrl: reelVideo,
-    title: 'Linen Duvet Set',
-    price: 180,
-    tag: '#Bedroom',
-    link: '/collections/linen-duvet',
-  },
-  {
-    id: 'reel-13',
-    videoUrl: reelVideo,
-    title: 'Linen Duvet Set',
-    price: 180,
-    tag: '#Bedroom',
-    link: '/collections/linen-duvet',
-  },
-  {
-    id: 'reel-14',
-    videoUrl: reelVideo,
-    title: 'Linen Duvet Set',
-    price: 180,
-    tag: '#Bedroom',
-    link: '/collections/linen-duvet',
-  },
-];
 
 // --- Animation Variants ---
 const gridVariants = {

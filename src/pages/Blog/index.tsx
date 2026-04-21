@@ -4,93 +4,19 @@ import React, { useMemo, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 
-import { Badge } from '@/components/ui/badge';
-import {
-    Breadcrumb,
-    BreadcrumbItem,
-    BreadcrumbLink,
-    BreadcrumbList,
-    BreadcrumbPage,
-    BreadcrumbSeparator,
-} from '@/components/ui/breadcrumb';
-import { Button } from '@/components/ui/button';
 import { BulkOrderCTA } from '@/components/custom/BulkOrderCTA';
 import { Footer } from '@/components/custom/footer';
-
-// --- Types & Mock Data ---
-interface BlogPost {
-  id: string;
-  title: string;
-  excerpt: string;
-  category: string;
-  readTime: string;
-  date: string;
-  imageUrl: string;
-  href: string;
-}
-
-const MOCK_BLOGS: BlogPost[] = [
-  {
-    id: 'blog-1',
-    title: 'The Art of Minimalist Living: Elevating Your Space',
-    excerpt:
-      'Discover how stripping back the excess can highlight the true beauty of your home architecture and signature furniture pieces. We explore the philosophy of "less but better".',
-    category: 'Interior Design',
-    readTime: '5 min read',
-    date: 'April 12, 2026',
-    imageUrl:
-      'https://images.unsplash.com/photo-1600210491369-e753d80a41f3?q=80&w=1200&auto=format&fit=crop',
-    href: '/blog/minimalist-living',
-  },
-  {
-    id: 'blog-2',
-    title: '5 Smart Appliances Redefining the Modern Kitchen',
-    excerpt:
-      'From AI-driven espresso makers to seamless integrated cooling, explore the tech upgrading our culinary spaces and making daily routines effortless.',
-    category: 'Smart Home',
-    readTime: '4 min read',
-    date: 'April 08, 2026',
-    imageUrl:
-      'https://images.unsplash.com/photo-1556911220-e15b29be8c8f?q=80&w=800&auto=format&fit=crop',
-    href: '/blog/smart-kitchen-appliances',
-  },
-  {
-    id: 'blog-3',
-    title: 'Layered Lighting: The Secret to a Cozy Atmosphere',
-    excerpt:
-      'A comprehensive guide to mixing ambient, task, and accent lighting to completely transform your living room into a warm, inviting sanctuary.',
-    category: 'Guides',
-    readTime: '7 min read',
-    date: 'April 02, 2026',
-    imageUrl:
-      'https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800&auto=format&fit=crop',
-    href: '/blog/layered-lighting-guide',
-  },
-  {
-    id: 'blog-4',
-    title: 'The Return of Mid-Century Modern',
-    excerpt:
-      'Why clean lines, organic curves, and mixed materials are making a massive comeback in 2026, and how to incorporate them without looking retro.',
-    category: 'Interior Design',
-    readTime: '6 min read',
-    date: 'March 28, 2026',
-    imageUrl:
-      'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=800&auto=format&fit=crop',
-    href: '/blog/mid-century-modern-return',
-  },
-  {
-    id: 'blog-5',
-    title: 'Sustainable Materials in Luxury Furniture',
-    excerpt:
-      'How top designers are utilizing reclaimed woods, recycled metals, and ethical fabrics to create stunning pieces that respect the planet.',
-    category: 'Sustainability',
-    readTime: '5 min read',
-    date: 'March 21, 2026',
-    imageUrl:
-      'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?q=80&w=800&auto=format&fit=crop',
-    href: '/blog/sustainable-materials',
-  },
-];
+import { Badge } from '@/components/ui/badge';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from '@/components/ui/breadcrumb';
+import { Button } from '@/components/ui/button';
+import { MOCK_BLOGS, type Blog } from '@/data/blogData';
 
 const CATEGORIES = ['All', 'Interior Design', 'Smart Home', 'Guides', 'Sustainability'];
 
@@ -258,10 +184,10 @@ export default function BlogPage() {
 // --- Sub-components ---
 
 // Hero style for the most recent/featured post
-const HeroArticleCard: React.FC<{ post: BlogPost }> = ({ post }) => {
+const HeroArticleCard: React.FC<{ post: Blog }> = ({ post }) => {
   return (
     <Link
-      to={post.href}
+      to={`/blog/${post.id}`}
       className="group focus-visible:ring-primary flex flex-col gap-8 rounded-2xl outline-none focus-visible:ring-2 lg:flex-row lg:items-center"
     >
       {/* Image Container (Spans 60% on Desktop) */}
@@ -311,10 +237,10 @@ const HeroArticleCard: React.FC<{ post: BlogPost }> = ({ post }) => {
 };
 
 // Standard vertical card for the grid
-const GridArticleCard: React.FC<{ post: BlogPost }> = ({ post }) => {
+const GridArticleCard: React.FC<{ post: Blog }> = ({ post }) => {
   return (
     <Link
-      to={post.href}
+      to={`/blog/${post.id}`}
       className="group focus-visible:ring-primary flex h-full flex-col rounded-2xl outline-none focus-visible:ring-2"
     >
       {/* Image Container */}

@@ -25,9 +25,31 @@ import { BulkOrderCTA } from '@/components/custom/BulkOrderCTA';
 import { ProductCard } from '@/components/custom/ProductCard'; // Adjust import path as needed
 import { Footer } from '@/components/custom/footer';
 import { MOCK_PRODUCTS } from '@/data/productData';
+import { useParams } from 'react-router-dom';
 
 export default function ProductDetailPage() {
-  const product = MOCK_PRODUCTS[0];
+  const { id } = useParams(); // Get the product ID from the URL
+  const product = MOCK_PRODUCTS.find((p) => p.id === id);
+
+  if (!product) {
+    return (
+      <div className="bg-background min-h-screen w-full pt-8">
+        <Helmet>
+          <title>Product Not Found | KRA Design</title>
+        </Helmet>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-foreground text-3xl font-bold">Product Not Found</h1>
+          <p className="text-muted-foreground mt-4">
+            Sorry, the product you are looking for does not exist.
+          </p>
+          <Button variant="outline" className="mt-6" onClick={() => window.history.back()}>
+            Go Back
+          </Button>
+        </div>
+      </div>
+    );
+  }
+  
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);

@@ -1,10 +1,10 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowLeft, Clock, Link as LinkIcon } from 'lucide-react';
-import React from 'react';
+import React, { use } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { FaFacebook } from 'react-icons/fa';
 import { FaLinkedin, FaSquareXTwitter } from 'react-icons/fa6';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import { Badge } from '@/components/ui/badge';
 import {
@@ -19,74 +19,23 @@ import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { BulkOrderCTA } from '@/components/custom/BulkOrderCTA';
 import { Footer } from '@/components/custom/footer';
+import { MOCK_BLOGS, type Blog } from '@/data/blogData';
 
 // --- Mock Data ---
 // In a real app, this would be fetched based on the URL parameter (e.g., useParams)
-const MOCK_ARTICLE = {
-  id: 'blog-1',
-  title: 'The Art of Minimalist Living: Elevating Your Space',
-  excerpt:
-    'Discover how stripping back the excess can highlight the true beauty of your home architecture and signature furniture pieces. We explore the philosophy of "less but better".',
-  content: `
-    <p>Minimalism isn't just about having less; it's about making room for more of what matters. In the context of interior design, it’s a deliberate curation of space, light, and objects to create an environment that feels both expansive and deeply personal.</p>
-    
-    <h2>The Philosophy of "Less but Better"</h2>
-    <p>The core tenet of minimalist design is intentionality. Every piece of furniture, every light fixture, and every decorative object must serve a purpose—whether functional, aesthetic, or emotional. When we strip away the superfluous, we allow the foundational elements of a room to breathe.</p>
-    
-    <blockquote>"Perfection is achieved, not when there is nothing more to add, but when there is nothing left to take away." — Antoine de Saint-Exupéry</blockquote>
-    
-    <h2>Focusing on Form and Material</h2>
-    <p>In a minimalist space, the eye isn't distracted by clutter. Therefore, the objects that do remain must carry the visual weight. This is why high-quality materials and strong geometric forms are vital. A solid oak dining table or a sculpted velvet armchair becomes the hero of the room.</p>
-    <ul>
-      <li><strong>Natural Textures:</strong> Incorporate wood, stone, and linen to add warmth.</li>
-      <li><strong>Negative Space:</strong> Allow areas of your room to remain empty. This is crucial for balance.</li>
-      <li><strong>Statement Lighting:</strong> Use architectural lighting fixtures as functional art.</li>
-    </ul>
-
-    <h2>Color Palettes that Calm</h2>
-    <p>While minimalism is often associated with stark white, a modern minimalist palette is much richer. Think warm greys, muted earthy tones, and deep, saturated accents like navy or charcoal to ground the space without overwhelming it.</p>
-    
-    <p>By embracing these principles, you don't just change how your home looks; you change how it feels. A minimalist home is a sanctuary—a quiet retreat from the noise of the outside world.</p>
-  `,
-  category: 'Interior Design',
-  readTime: '5 min read',
-  date: 'April 12, 2026',
-  author: 'Elena Rodriguez',
-  authorRole: 'Lead Interior Designer',
-  authorImage:
-    'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop',
-  imageUrl:
-    'https://images.unsplash.com/photo-1600210491369-e753d80a41f3?q=80&w=2000&auto=format&fit=crop',
-};
-
-const RELATED_ARTICLES = [
-  {
-    id: 'blog-4',
-    title: 'The Return of Mid-Century Modern',
-    excerpt:
-      'Why clean lines, organic curves, and mixed materials are making a massive comeback in 2026.',
-    category: 'Interior Design',
-    readTime: '6 min read',
-    date: 'March 28, 2026',
-    imageUrl:
-      'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?q=80&w=800&auto=format&fit=crop',
-    href: '/blog/mid-century-modern-return',
-  },
-  {
-    id: 'blog-3',
-    title: 'Layered Lighting: The Secret to a Cozy Atmosphere',
-    excerpt: 'A comprehensive guide to mixing ambient, task, and accent lighting.',
-    category: 'Guides',
-    readTime: '7 min read',
-    date: 'April 02, 2026',
-    imageUrl:
-      'https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800&auto=format&fit=crop',
-    href: '/blog/layered-lighting-guide',
-  },
-];
 
 export default function BlogDetailPage() {
-  const article = MOCK_ARTICLE;
+  const { id } = useParams(); // Get the blog ID from the URL
+  const article = MOCK_BLOGS.find((blog) => blog.id === id); // In a real app, find the article based on the URL parameter (e.g., useParams)
+
+  if (!article) {
+    return (
+      <div className="bg-background flex min-h-screen items-center justify-center">
+        <h1 className="text-foreground text-2xl font-bold">Article Not Found</h1>
+      </div>
+    );
+  }
+
   const pageTitle = `${article.title} | KRA Design Journal`;
 
   // Scroll animation for the hero image parallax effect
@@ -151,9 +100,7 @@ export default function BlogDetailPage() {
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage className="line-clamp-1 max-w-50">
-                  {article.title}
-                </BreadcrumbPage>
+                <BreadcrumbPage className="line-clamp-1 max-w-50">{article.title}</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
@@ -247,7 +194,7 @@ export default function BlogDetailPage() {
           </div>
 
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-10">
-            {RELATED_ARTICLES.map((post) => (
+            {MOCK_BLOGS.map((post) => (
               <GridArticleCard key={post.id} post={post as any} />
             ))}
           </div>
@@ -276,10 +223,10 @@ const ShareButton: React.FC<{ icon: React.ElementType; ariaLabel: string }> = ({
 );
 
 // Re-using the GridArticleCard from your previous setup
-const GridArticleCard: React.FC<{ post: any }> = ({ post }) => {
+const GridArticleCard: React.FC<{ post: Blog }> = ({ post }) => {
   return (
     <Link
-      to={post.href}
+      to={`/blog/${post.id}`}
       className="group focus-visible:ring-primary flex h-full flex-col rounded-2xl outline-none focus-visible:ring-2"
     >
       <div className="bg-muted relative aspect-4/3 w-full overflow-hidden rounded-2xl md:aspect-video">

@@ -4,8 +4,7 @@ import { Clock, ArrowUpRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import SectionHeading from '@/components/custom/SectionHeading';
-import { MOCK_BLOGS, type BlogPost } from '@/data/blogData';
-
+import { MOCK_BLOGS, type Blog } from '@/data/blogData';
 
 // --- Animation Variants ---
 const containerVariants = {
@@ -33,7 +32,7 @@ export const LatestBlogs: React.FC = () => {
           title="Journal & Insights"
           subtitle="Expert design tips, appliance reviews, and inspiration for curating your perfect home."
           ctaText="View All Articles"
-          ctaHref='/blogs'
+          ctaHref="/blogs"
         />
 
         {/* 6-Column, 2-Row Bento Grid */}
@@ -71,10 +70,10 @@ export const LatestBlogs: React.FC = () => {
 
 // --- Sub-components ---
 
-const FeaturedArticleCard: React.FC<{ post: BlogPost }> = ({ post }) => {
+const FeaturedArticleCard: React.FC<{ post: Blog }> = ({ post }) => {
   return (
     <a
-      href={post.href}
+      href={`blog/${post.id}`}
       className="group focus-visible:ring-primary flex h-full flex-col rounded-2xl outline-none focus-visible:ring-2"
     >
       {/* Image Container */}
@@ -123,10 +122,10 @@ const FeaturedArticleCard: React.FC<{ post: BlogPost }> = ({ post }) => {
   );
 };
 
-const SecondaryArticleCard: React.FC<{ post: BlogPost }> = ({ post }) => {
+const SecondaryArticleCard: React.FC<{ post: Blog }> = ({ post }) => {
   return (
     <a
-      href={post.href}
+      href={`blog/${post.id}`}
       className="group focus-visible:ring-primary flex h-full flex-col gap-6 rounded-2xl outline-none focus-visible:ring-2 md:flex-row md:items-center"
     >
       {/* Image Container - Shifts to side-by-side on tablet/desktop */}
