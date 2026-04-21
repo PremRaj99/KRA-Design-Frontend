@@ -105,7 +105,7 @@ export default function BlogDetailPage() {
       </Helmet>
 
       {/* 1. Cinematic Hero Image (Parallax) */}
-      <div className="relative h-[50vh] min-h-[400px] w-full overflow-hidden sm:h-[60vh] lg:h-[70vh]">
+      <div className="relative h-[50vh] min-h-100 w-full overflow-hidden sm:h-[60vh] lg:h-[70vh]">
         <motion.img
           src={article.imageUrl}
           alt={article.title}
@@ -116,7 +116,7 @@ export default function BlogDetailPage() {
           transition={{ duration: 1.2, ease: 'easeOut' }}
         />
         {/* Subtle gradient to ensure breadcrumb readability if placed over image */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/40 via-transparent to-black/60" />
 
         <div className="absolute inset-0 flex items-end">
           <div className="container mx-auto px-4 pb-12 sm:px-6 lg:px-8">
@@ -151,7 +151,7 @@ export default function BlogDetailPage() {
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage className="line-clamp-1 max-w-[200px]">
+                <BreadcrumbPage className="line-clamp-1 max-w-50">
                   {article.title}
                 </BreadcrumbPage>
               </BreadcrumbItem>
@@ -282,7 +282,7 @@ const GridArticleCard: React.FC<{ post: any }> = ({ post }) => {
       to={post.href}
       className="group focus-visible:ring-primary flex h-full flex-col rounded-2xl outline-none focus-visible:ring-2"
     >
-      <div className="bg-muted relative aspect-[4/3] w-full overflow-hidden rounded-2xl md:aspect-[16/9]">
+      <div className="bg-muted relative aspect-4/3 w-full overflow-hidden rounded-2xl md:aspect-video">
         <motion.img
           src={post.imageUrl}
           alt={post.title}

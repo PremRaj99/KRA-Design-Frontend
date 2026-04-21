@@ -1,51 +1,19 @@
-import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { SLIDES_DATA } from '@/data/heroBannerData';
 import { useAutoSlider } from '@/hooks/useAutoSlider';
-
-// --- Data Constants ---
-const SLIDES = [
-  {
-    id: 1,
-    image:
-      'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2560&auto=format&fit=crop',
-    title: 'Elevate Your Living Space',
-    subtitle:
-      'Discover our premium collection of mid-century modern sofas and minimalist coffee tables.',
-    cta: 'Shop Living Room',
-    link: '/collections/home-living',
-  },
-  {
-    id: 2,
-    image:
-      'https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=2560&auto=format&fit=crop',
-    title: 'Sanctuary of Sleep',
-    subtitle: 'Experience ultimate comfort with our orthopedic mattresses and luxury bed frames.',
-    cta: 'Explore Bedroom',
-    link: '/collections/bedroom',
-  },
-  {
-    id: 3,
-    image:
-      'https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2560&auto=format&fit=crop',
-    title: 'Signature Mirrors',
-    subtitle:
-      'Reflect your unique style with our handcrafted, limited-edition floor and wall mirrors.',
-    cta: 'View Collection',
-    link: '/collections/signature-mirrors',
-  },
-];
+import { AnimatePresence, motion } from 'framer-motion';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import React from 'react';
 
 export const HeroSlider: React.FC = () => {
   const { currentIndex, nextSlide, prevSlide, goToSlide, setIsPaused } = useAutoSlider({
-    totalSlides: SLIDES.length,
+    totalSlides: SLIDES_DATA.length,
     intervalMs: 5000,
   });
 
   return (
     <section
-      className="h-body max-h-200 bg-muted relative min-h-150 w-full overflow-hidden"
+      className="h-body bg-muted relative max-h-200 min-h-150 w-full overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -60,8 +28,8 @@ export const HeroSlider: React.FC = () => {
           className="absolute inset-0 z-0 h-full w-full"
         >
           <img
-            src={SLIDES[currentIndex].image}
-            alt={SLIDES[currentIndex].title}
+            src={SLIDES_DATA[currentIndex].image}
+            alt={SLIDES_DATA[currentIndex].title}
             className="h-full w-full mask-b-to-200 object-cover"
             loading={currentIndex === 0 ? 'eager' : 'lazy'}
           />
@@ -72,7 +40,7 @@ export const HeroSlider: React.FC = () => {
       <div className="pointer-events-none absolute inset-0 z-10" />
 
       {/* 3. Content Overlay (z-20) - Pure text, no background box */}
-      <div className="pointer-events-none absolute inset-0 max-w-7xl w-full mx-auto z-20 flex flex-col items-start justify-end px-8 pb-12 sm:pl-16 lg:pb-24">
+      <div className="pointer-events-none absolute inset-0 z-20 mx-auto flex w-full max-w-7xl flex-col items-start justify-end px-8 pb-12 sm:pl-16 lg:pb-24">
         <div className="pointer-events-auto max-w-3xl">
           <AnimatePresence mode="wait">
             <motion.div
@@ -84,13 +52,13 @@ export const HeroSlider: React.FC = () => {
               className="flex flex-col items-start text-left"
             >
               <h1 className="font-geist text-foreground mb-4 text-3xl font-extrabold tracking-tight drop-shadow-xl sm:text-5xl lg:text-6xl">
-                {SLIDES[currentIndex].title}
+                {SLIDES_DATA[currentIndex].title}
               </h1>
               <p className="text-foreground/90 mb-4 max-w-xl font-sans text-base drop-shadow-md sm:text-lg md:mb-8 lg:text-xl">
-                {SLIDES[currentIndex].subtitle}
+                {SLIDES_DATA[currentIndex].subtitle}
               </p>
-              <Button asChild size="lg" className="font-sans text-base shadow-lg px-8 py-6">
-                <a href={SLIDES[currentIndex].link}>{SLIDES[currentIndex].cta}</a>
+              <Button asChild size="lg" className="px-8 py-6 font-sans text-base shadow-lg">
+                <a href={SLIDES_DATA[currentIndex].link}>{SLIDES_DATA[currentIndex].cta}</a>
               </Button>
             </motion.div>
           </AnimatePresence>
@@ -100,7 +68,7 @@ export const HeroSlider: React.FC = () => {
       {/* 4. Controls & Indicators (z-30) */}
       <SliderControls onNext={nextSlide} onPrev={prevSlide} />
 
-      <SliderIndicators total={SLIDES.length} current={currentIndex} onSelect={goToSlide} />
+      <SliderIndicators total={SLIDES_DATA.length} current={currentIndex} onSelect={goToSlide} />
     </section>
   );
 };

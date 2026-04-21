@@ -22,91 +22,12 @@ import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 
 import { BulkOrderCTA } from '@/components/custom/BulkOrderCTA';
-import { ProductCard, type Product } from '@/components/custom/ProductCard'; // Adjust import path as needed
+import { ProductCard } from '@/components/custom/ProductCard'; // Adjust import path as needed
 import { Footer } from '@/components/custom/footer';
-
-// --- Mock Data ---
-const MOCK_PRODUCT = {
-  id: 'p1',
-  title: 'Mid-Century Velvet Sofa',
-  price: 1299,
-  discountedPrice: 999,
-  discountPercentage: 23,
-  rating: 4.8,
-  reviewsCount: 124,
-  category: 'Living Room',
-  subCategory: 'Sofas',
-  tag: 'Bestseller',
-  description:
-    'Elevate your living space with our signature Mid-Century Velvet Sofa. Featuring clean architectural lines, premium high-density foam cushioning, and upholstered in spill-resistant, ultra-soft performance velvet. Bench-made by master artisans to ensure lasting durability and uncompromising comfort.',
-  features: [
-    'Kiln-dried hardwood frame with mortise-and-tenon joinery',
-    'High-resiliency polyurethane foam core',
-    'Spill-resistant luxury performance velvet',
-    'Solid brass or matte black tapered legs',
-  ],
-  dimensions: '84" W x 35" D x 32" H',
-  care: 'Vacuum regularly. Blot spills immediately with a clean, colorfast towel. Do not use harsh chemicals or detergents.',
-  images: [
-    'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=1200&auto=format&fit=crop', // Main
-    'https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?q=80&w=1200&auto=format&fit=crop', // Detail 1
-    'https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?q=80&w=1200&auto=format&fit=crop', // Detail 2
-    'https://images.unsplash.com/photo-1540574163026-643ea20d25b5?q=80&w=1200&auto=format&fit=crop', // Detail 3
-  ],
-  colors: [
-    { name: 'Olive Green', hex: '#556B2F' },
-    { name: 'Burnt Orange', hex: '#CC5500' },
-    { name: 'Navy Blue', hex: '#000080' },
-    { name: 'Charcoal', hex: '#36454F' },
-  ],
-};
-
-const RELATED_PRODUCTS: Product[] = [
-  {
-    id: 'r1',
-    category: 'Decor',
-    subCategory: 'Lighting',
-    title: 'Ceramic Table Lamp',
-    image:
-      'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?q=80&w=800&auto=format&fit=crop',
-    price: 149,
-    rating: 4.2,
-  },
-  {
-    id: 'r2',
-    category: 'Living Room',
-    subCategory: 'Tables',
-    title: 'Marble Coffee Table',
-    image:
-      'https://images.unsplash.com/photo-1533090481720-856c6e3c1fdc?q=80&w=800&auto=format&fit=crop',
-    price: 450,
-    rating: 4.9,
-    tag: 'Trending',
-  },
-  {
-    id: 'r3',
-    category: 'Decor',
-    subCategory: 'Art',
-    title: 'Abstract Canvas Art',
-    image:
-      'https://images.unsplash.com/photo-1544457070-4cd773b4d71e?q=80&w=800&auto=format&fit=crop',
-    price: 299,
-    rating: 5.0,
-  },
-  {
-    id: 'r4',
-    category: 'Decor',
-    subCategory: 'Textiles',
-    title: 'Cashmere Throw Blanket',
-    image:
-      'https://images.unsplash.com/photo-1580828369019-22204c1c9818?q=80&w=800&auto=format&fit=crop',
-    price: 120,
-    rating: 4.7,
-  },
-];
+import { MOCK_PRODUCTS } from '@/data/productData';
 
 export default function ProductDetailPage() {
-  const product = MOCK_PRODUCT;
+  const product = MOCK_PRODUCTS[0];
   const [activeImageIndex, setActiveImageIndex] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
@@ -172,7 +93,7 @@ export default function ProductDetailPage() {
             </div>
 
             {/* Main Featured Image */}
-            <div className="bg-muted relative aspect-[4/3] w-full overflow-hidden rounded-xl lg:aspect-[4/5]">
+            <div className="bg-muted relative aspect-4/3 w-full overflow-hidden rounded-xl lg:aspect-4/5">
               {product.tag && (
                 <Badge
                   variant="secondary"
@@ -375,7 +296,7 @@ export default function ProductDetailPage() {
           </div>
 
           <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-4">
-            {RELATED_PRODUCTS.map((product) => (
+            {MOCK_PRODUCTS.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>

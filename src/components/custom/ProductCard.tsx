@@ -4,25 +4,13 @@ import { ShoppingBag, Star } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
+import type { MockProduct } from '@/data/productData';
 // Note: Ensure your Product interface is imported/available here
 // interface Product { ... }
 
 export type Category = 'All' | 'Living Room' | 'Bedroom' | 'Kitchen' | 'Decor';
 
-export interface Product {
-  id: string;
-  category: Category;
-  subCategory: string;
-  title: string;
-  image: string;
-  price: number;
-  discountedPrice?: number;
-  discountPercentage?: number;
-  rating: number;
-  tag?: string;
-}
-
-export const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
+export const ProductCard: React.FC<{ product: MockProduct }> = ({ product }) => {
   const navigate = useNavigate();
   return (
     <motion.div
@@ -55,7 +43,7 @@ export const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
 
         {/* Product Image with smooth scale on hover */}
         <motion.img
-          src={product.image}
+          src={product.images[0]}
           alt={product.title}
           className="h-full w-full object-cover"
           variants={{
@@ -90,12 +78,12 @@ export const ProductCard: React.FC<{ product: Product }> = ({ product }) => {
 
       {/* 2. Content Area (Tight, minimal, editorial typography) */}
       <div className="mt-4 flex flex-col px-1">
-        <div className="flex items-center justify-between mb-1">
+        <div className="mb-1 flex items-center justify-between">
           <p className="text-muted-foreground font-sans text-[10px] font-semibold tracking-widest uppercase">
             {product.subCategory}
           </p>
-          <div className="flex items-center gap-1 text-xs font-semibold text-foreground">
-            <Star className="h-3 w-3 fill-primary text-primary" />
+          <div className="text-foreground flex items-center gap-1 text-xs font-semibold">
+            <Star className="fill-primary text-primary h-3 w-3" />
             {product.rating}
           </div>
         </div>
