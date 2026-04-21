@@ -1,17 +1,15 @@
-import React, { useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Heart, Minus, Plus, RotateCcw, ShieldCheck, ShoppingBag, Star, Truck } from 'lucide-react';
+import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ShoppingBag, Heart, Truck, RotateCcw, ShieldCheck, Minus, Plus, Star } from 'lucide-react';
 
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { Separator } from '@/components/ui/separator';
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { Badge } from '@/components/ui/badge';
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -20,10 +18,12 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
+import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
 
+import { BulkOrderCTA } from '@/components/custom/BulkOrderCTA';
 import { ProductCard, type Product } from '@/components/custom/ProductCard'; // Adjust import path as needed
 import { Footer } from '@/components/custom/footer';
-import { BulkOrderCTA } from '@/components/custom/BulkOrderCTA';
 
 // --- Mock Data ---
 const MOCK_PRODUCT = {
