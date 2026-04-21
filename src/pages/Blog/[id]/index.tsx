@@ -1,11 +1,13 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowLeft, Clock, Link as LinkIcon } from 'lucide-react';
-import React, { use } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { FaFacebook } from 'react-icons/fa';
 import { FaLinkedin, FaSquareXTwitter } from 'react-icons/fa6';
 import { Link, useParams } from 'react-router-dom';
 
+import { BulkOrderCTA } from '@/components/custom/BulkOrderCTA';
+import { Footer } from '@/components/custom/footer';
 import { Badge } from '@/components/ui/badge';
 import {
   Breadcrumb,
@@ -17,8 +19,6 @@ import {
 } from '@/components/ui/breadcrumb';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
-import { BulkOrderCTA } from '@/components/custom/BulkOrderCTA';
-import { Footer } from '@/components/custom/footer';
 import { MOCK_BLOGS, type Blog } from '@/data/blogData';
 
 // --- Mock Data ---
