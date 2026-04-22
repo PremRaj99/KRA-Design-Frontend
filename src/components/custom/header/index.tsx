@@ -47,16 +47,15 @@ const PRIMARY_NAV = [
 ];
 
 const CATEGORY_NAV = [
-  { title: 'Home Living', sub: ['Sofas & Lounges', 'Coffee Tables', 'TV Units'] },
-  { title: 'Bedroom', sub: ['Beds', 'Mattresses', 'Wardrobes', 'Nightstands'] },
-  { title: 'Dining', sub: ['Dining Tables', 'Dining Chairs', 'Bar Stools'] },
-  { title: 'Office', sub: ['Desks', 'Office Chairs', 'Bookshelves'] },
-  { title: 'Signature Mirrors', sub: ['Wall Mirrors', 'Floor Mirrors', 'Vanity'] },
-  { title: 'Bar Essentials', sub: ['Bar Cabinets', 'Wine Racks', 'Trolleys'] },
-  { title: 'Limited Edition', sub: ['Exclusive Art', 'Designer Collabs'] },
-  { title: 'Luxury Gifting', sub: ['For Him', 'For Her', 'Corporate'] },
+  { title: 'Home Living', sub: ['Coaster', 'Tissue box', 'Dustbin', 'Tray', 'Lamp'] },
+  { title: 'Dining', sub: ['Coaster', 'Tray', 'Tiffin box'] },
+  { title: 'Office', sub: ['Pen box', 'Storage box'] },
+  { title: 'Signature Mirrors', sub: [] },
+  { title: 'Bar Essentials', sub: ['Coaster', 'Tray'] },
+  { title: 'Limited Edition', sub: ['Jewelry box', 'Watch box'] },
+  { title: 'Luxury Gifting', sub: ['Jewelry box', 'Watch box', 'Pen box', 'Tiffin box', 'Coaster', 'Tray'] },
   { title: 'New Arrivals', sub: [] },
-  { title: 'Collections', sub: ["Summer '26", 'Minimalist Series'] },
+  { title: 'Collections', sub: [] },
 ];
 
 const PROFILE_MENU = [
