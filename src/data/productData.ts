@@ -1,4 +1,13 @@
 // --- Mock Data ---
+import image1 from '@/assets/productImages/jewelryBox/AZ2e9-19aTHYX28PHz3RBg-AZ2e9-192PX0D63TJ33qGQ.jpg';
+import image2 from '@/assets/productImages/jewelryBox/Firefly_Gemini Flash_This product is a jewelry box.__Use uploaded image as exact product, keep it complete 162768 (2).png';
+import image3 from '@/assets/productImages/jewelryBox/Firefly_Gemini Flash_Ultra-realistic luxury jewelry box, keep product exactly unchanged, high-end craftsma 464119.png';
+import image4 from '@/assets/productImages/jewelryBox/Firefly_Gemini Flash_This product is a jewelry box.__Use uploaded image as exact product, keep it complete 162768 (7).png';
+import image5 from '@/assets/productImages/jewelryBox/Firefly_Gemini Flash_This product is a jewelry box.__Use uploaded image as exact product, keep it complete 162768 (2).png';
+import image6 from '@/assets/productImages/watchBox/Firefly_Ultra-realistic luxury product photography for KRA Design featuring a premium watch b 78859.png'
+import image7 from '@/assets/productImages/watchBox/Firefly_make it more realstics 78859.png';
+import image8 from '@/assets/productImages/lamp/ChatGPT Image Apr 17, 2026, 01_44_18 PM.png';
+import image9 from '@/assets/productImages/tissueBox/Firefly_Gemini Flash_create   different more pics 162768.png';
 export type MockProduct = {
   id: string;
   title: string;
@@ -19,6 +28,94 @@ export type MockProduct = {
 };
 
 export const MOCK_PRODUCTS: MockProduct[] = [
+  {
+    id: '1',
+    title: 'Jewelry Box',
+    price: 0,
+    discountedPrice: 0,
+    discountPercentage: 0,
+    rating: 0,
+    reviewsCount: 0,
+    category: '',
+    subCategory: '',
+    tag: '',
+    description: '',
+    features: [],
+    dimensions: '',
+    care: '',
+    images: [image1, image2, image3, image4, image5],
+    colors: [
+      { name: 'Black', hex: '#000000' },
+      { name: 'White', hex: '#FFFFFF' },
+      { name: 'Red', hex: '#FF0000' },
+      { name: 'Blue', hex: '#0000FF' },
+      { name: 'Green', hex: '#008000' },
+    ]
+  },
+  {
+    id: '2',
+    title: 'Watch Box',
+    price: 0,
+    discountedPrice: 0,
+    discountPercentage: 0,
+    rating: 0,
+    reviewsCount: 0,
+    category: '',
+    subCategory: '',
+    tag: '',
+    description: '',
+    features: [],
+    dimensions: '',
+    care: '',
+    images: [image6, image7],
+    colors: [
+      { name: 'Black', hex: '#000000' },
+      { name: 'White', hex: '#FFFFFF' },
+      { name: 'Red', hex: '#FF0000' },
+      { name: 'Blue', hex: '#0000FF' },
+      { name: 'Green', hex: '#008000' },
+    ]
+  },
+  {
+    id: '3',
+    title: 'Lamp',
+    price: 0,
+    discountedPrice: 0,
+    discountPercentage: 0,
+    rating: 0,
+    reviewsCount: 0,
+    category: '',
+    subCategory: '',
+    tag: '',
+    description: '',
+    features: [],
+    dimensions: '',
+    care: '',
+    images: [image8],
+    colors: [
+      { name: 'Black', hex: '#000000' },
+    ]
+  },
+  {
+    id: '4',
+    title: 'Tissue Box',
+    price: 0,
+    discountedPrice: 0,
+    discountPercentage: 0,
+    rating: 0,
+    reviewsCount: 0,
+    category: '',
+    subCategory: '',
+    tag: '',
+    description: '',
+    features: [],
+    dimensions: '',
+    care: '',
+    images: [image9],
+    colors: [
+      { name: 'White', hex: '#FFFFFF' },
+    ]
+  },
   {
     id: 'p2',
     title: 'Scandinavian Fabric Armchair',
